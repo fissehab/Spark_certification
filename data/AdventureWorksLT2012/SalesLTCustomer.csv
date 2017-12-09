@@ -1,4 +1,5 @@
-﻿1,0,Mr.,Orlando,N.,Gee,NULL,A Bike Store,adventure-works\pamela0,orlando0@adventure-works.com,245-555-0173,L/Rlwxzp4w7RWmEgXX+/A7cXaePEPcp+KwQhl2fJL7w=,1KjXYs4=,3F5AE95E-B87D-4AED-95B4-C3797AFCB74F,2001-08-01 00:00:00.000
+﻿CustomerID,NameStyle,Title,FirstName,MiddleName,LastName,Suffix,CompanyName,SalesPerson,EmailAddress,Phone,PasswordHash,PasswordSalt,rowguid,ModifiedDate
+1,0,Mr.,Orlando,N.,Gee,NULL,A Bike Store,adventure-works\pamela0,orlando0@adventure-works.com,245-555-0173,L/Rlwxzp4w7RWmEgXX+/A7cXaePEPcp+KwQhl2fJL7w=,1KjXYs4=,3F5AE95E-B87D-4AED-95B4-C3797AFCB74F,2001-08-01 00:00:00.000
 2,0,Mr.,Keith,NULL,Harris,NULL,Progressive Sports,adventure-works\david8,keith0@adventure-works.com,170-555-0127,YPdtRdvqeAhj6wyxEsFdshBDNXxkCXn+CRgbvJItknw=,fs1ZGhY=,E552F657-A9AF-4A7D-A645-C429D6E02491,2002-08-01 00:00:00.000
 3,0,Ms.,Donna,F.,Carreras,NULL,Advanced Bike Components,adventure-works\jillian0,donna0@adventure-works.com,279-555-0130,LNoK27abGQo48gGue3EBV/UrlYSToV0/s87dCRV7uJk=,YTNH5Rw=,130774B1-DB21-4EF3-98C8-C104BCD6ED6D,2001-09-01 00:00:00.000
 4,0,Ms.,Janet,M.,Gates,NULL,Modular Cycle Systems,adventure-works\jillian0,janet1@adventure-works.com,710-555-0173,ElzTpSNbUW1Ut+L5cWlfR7MF6nBZia8WpmGaQPjLOJA=,nm7D5e4=,FF862851-1DAA-4044-BE7C-3E85583C054D,2002-07-01 00:00:00.000
@@ -845,3 +846,6 @@
 30116,0,Ms.,Wanda,F.,Vernon,NULL,Technical Parts Manufacturing,adventure-works\shu0,wanda0@adventure-works.com,433-555-0168,hNQpZV8787KyeDWfllnZWzY+l8DFEYTnwoZZzYtusi0=,HDCU1Bk=,EC409609-D25D-41B8-9D15-A1AA6E89FC77,2003-07-01 00:00:00.000
 30117,0,Mr.,Robert,R.,Vessa,NULL,Totes & Baskets Company,adventure-works\jillian0,robert13@adventure-works.com,560-555-0171,UWGC2U8F7AUNA2FuiT4agrBoxAFskHGQSxqP39B7zLQ=,iES3IZA=,6F08E2FB-1CD3-4F6E-A2E6-385669598B19,2001-08-01 00:00:00.000
 30118,0,Ms.,Caroline,A.,Vicknair,NULL,World of Bikes,adventure-works\jillian0,caroline0@adventure-works.com,695-555-0158,U1/CrPqSzwLTtwgBehfpIl7f1LHSFpZw1qnG1sMzFjo=,QhHP+y8=,2495B4EB-FE8B-459E-A1B6-DBA25C04E626,2002-09-01 00:00:00.000
+
+(847 row(s) affected)
+

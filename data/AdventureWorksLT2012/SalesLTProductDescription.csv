@@ -1,4 +1,5 @@
-﻿3,Chromoly steel.,301EED3A-1A82-4855-99CB-2AFE8290D641,2003-06-01 00:00:00.000
+﻿ProductDescriptionID,Description,rowguid,ModifiedDate
+3,Chromoly steel.,301EED3A-1A82-4855-99CB-2AFE8290D641,2003-06-01 00:00:00.000
 4,Aluminum alloy cups; large diameter spindle.,DFEBA528-DA11-4650-9D86-CAFDA7294EB0,2003-06-01 00:00:00.000
 5,Aluminum alloy cups and a hollow axle.,F7178DA7-1A7E-4997-8470-06737181305E,2003-06-01 00:00:00.000
 8,Suitable for any type of riding, on or off-road. Fits any budget. Smooth-shifting with a comfortable ride.,8E6746E5-AD97-46E2-BD24-FCEA075C3B52,2003-06-01 00:00:00.000
@@ -363,7 +364,7 @@
 1602,Collants chauds en Spandex pour l'hiver ; fabrication en chamoisine sans couture pour éliminer les points de frottement.,B14B2CED-42BE-4203-BB41-EA976E91B837,2003-06-01 00:00:00.000
 1603,Nettoie les saletés ; dissout la graisse. Protège l'environnement. Bouteille d'1 litre.,61ACC4FA-4C4A-4C84-9907-101679487C72,2003-06-01 00:00:00.000
 1604,S'enroule pour s'adapter aux pneus avant et arrière, sac et deux clés fournis.,6B974188-B7B1-4925-9842-FEC0F6860945,2003-06-01 00:00:00.000
-1605,Chaque cadre est fabriqué artisanalement dans notre atelier de Bordeaux afin d'obtenir le diamètre et l'épaisseur adaptés à un vélo tout-terrain de premier choix. Le cadre en aluminium soudé à chaud présente un tube d'un plus grand diamètre, afin d'absorber les bosses.,9CFED570-180A-44EA-8233-55116A0DDCB9,2003-06-01 00:00:00.000
+1605,Chaque cadre est fabriqué artisanalement dans notre atelier de Bordeaux afin d'obtenir le diamètre et l'épaisseur adaptés à un vélo tout-terrain de premier choix. Le cadre en aluminium soudé à chaud présente un tube d'un plus grand diamètre, afin d'absorbe,9CFED570-180A-44EA-8233-55116A0DDCB9,2003-06-01 00:00:00.000
 1606,โลหะโครโมลี,F30D7F55-1A2B-4375-AF8C-A20FC2EA9509,2003-06-01 00:00:00.000
 1607,ดุมอลูมิเนียมอัลลอยด์ แกนเพลาขนาดใหญ่,8775E0B1-524F-48C4-B36B-03EC73145FEE,2004-03-11 10:32:17.973
 1608,ดุมอลูมิเนียมอัลลอยด์และเพลากลวง,7F5F3ABC-CAA4-4BEF-8F4B-2761C1494208,2004-03-11 10:32:17.973
@@ -760,3 +761,6 @@
 2008,การออกแบบให้มีจุดเชื่อมกว้าง,02417873-BDA7-4B1B-902A-5341CD329F5E,2003-06-01 00:00:00.000
 2009,עיצוב רחב-חוליות.,A2131096-7E81-40DC-9AA3-1CDEBABF7BC0,2003-06-01 00:00:00.000
 2010,宽连杆设计。,46541761-9053-4B6F-80F0-69AAE2695A8D,2003-06-01 00:00:00.000
+
+(762 row(s) affected)
+
