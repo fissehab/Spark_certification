@@ -24,8 +24,8 @@ To convert a text file into an RDD, we use the SparkContext.textFile() method.
 
 
 ```python
-bibleRDD = sc.textFile("/home/fish/MySpark/data/bible_quran/bible.txt")
-quranRDD = sc.textFile("/home/fish/MySpark/data/bible_quran/quran.txt")
+bibleRDD = sc.textFile("bible_quran/bible.txt")
+quranRDD = sc.textFile("bible_quran/quran.txt")
 ```
 
 #### Display sample data
@@ -649,7 +649,7 @@ plt.show()
 ```
 
 
-![png](output_76_0.png)
+![png](../figures/output_76_0.png)
 
 
 
@@ -664,7 +664,7 @@ plt.show()
 ```
 
 
-![png](output_77_0.png)
+![png](../figures/output_77_0.png)
 
 
 From the above histograms, we see that most words have frequencies less than 10.
@@ -833,7 +833,7 @@ plt.show()
 ```
 
 
-![png](output_85_0.png)
+![png](../figures/output_85_0.png)
 
 
 
@@ -851,7 +851,7 @@ plt.show()
 ```
 
 
-![png](output_86_0.png)
+![png](../figures/output_86_0.png)
 
 
 ### Summary

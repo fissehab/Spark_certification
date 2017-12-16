@@ -29,8 +29,8 @@ As an initial step towards generating invoice report, write a query that returns
 
 
 ```python
-orderHeader = sc.textFile("/home/fish/MySpark/data/AdventureWorksLT2012/SalesLTSalesOrderHeader.txt")
-customer = sc.textFile("/home/fish/MySpark/data/AdventureWorksLT2012/SalesLTCustomer.txt")
+orderHeader = sc.textFile("SalesLTSalesOrderHeader.txt")
+customer = sc.textFile("SalesLTCustomer.txt")
 ```
 
 From the commnads below, we see that the first rows are column names and the datasets are tab delimited.
@@ -144,7 +144,7 @@ plt.show()
 ```
 
 
-![png](output_18_0.png)
+![png](../figures/output_18_0.png)
 
 
 ** DataFrame way**
@@ -349,8 +349,8 @@ As we can see below, the datasets for this question are also tab delimited.
 
 
 ```python
-address = sc.textFile("/home/fish/MySpark/data/AdventureWorksLT2012/SalesLTAddress.txt")
-customer_address = sc.textFile("/home/fish/MySpark/data/AdventureWorksLT2012/SalesLTCustomerAddress.txt")
+address = sc.textFile("SalesLTAddress.txt")
+customer_address = sc.textFile("SalesLTCustomerAddress.txt")
 ```
 
 

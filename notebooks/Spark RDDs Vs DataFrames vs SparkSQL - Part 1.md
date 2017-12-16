@@ -24,7 +24,7 @@ sc = SparkContext.getOrCreate(conf)
 
 
 ```python
-products = sc.textFile("/home/fish/MySpark/data/AdventureWorksLT2012/SalesLTProduct.txt")
+products = sc.textFile("SalesLTProduct.txt")
 ```
 
 **Retrieve the first row of the data**
