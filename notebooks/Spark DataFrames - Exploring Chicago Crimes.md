@@ -57,7 +57,7 @@ crimes_schema = StructType([StructField("ID", StringType(), True),
 
 
 ```python
-crimes = spark.read.csv("/home/fish/MySpark/data/chicago_crimes/Chicago_crimes_2001_to_present.csv",
+crimes = spark.read.csv("Chicago_crimes_2001_to_present.csv",
                        header = True, 
                         schema = crimes_schema)
 ```
@@ -806,7 +806,7 @@ plt.show()
 ```
 
 
-![png](output_69_0.png)
+![png](../figures/output_69_0.png)
 
 
 #### Plot number of crimes by month
@@ -866,7 +866,7 @@ plt.show()
 ```
 
 
-![png](output_73_0.png)
+![png](../figures/output_73_0.png)
 
 
 ### Where do most crimes take pace?
@@ -990,7 +990,7 @@ plt.show()
 ```
 
 
-![png](output_77_0.png)
+![png](../figures/Aoutput_77_0.png)
 
 
 ####     We can also calculate the number of crimes per hour, day, and month.
@@ -1083,7 +1083,7 @@ plt.show()
 ```
 
 
-![png](output_84_0.png)
+![png](../figures/output_84_0.png)
 
 
 #### we can also show only number of domestic crimes by day
@@ -1111,7 +1111,7 @@ plt.show()
 ```
 
 
-![png](output_86_0.png)
+![png](../figures/Aoutput_86_0.png)
 
 
 #### Number of domestic crimes by hour
@@ -1142,7 +1142,7 @@ plt.show()
 ```
 
 
-![png](output_88_0.png)
+![png](../figures/output_88_0.png)
 
 
 #### We can also show number of domestic crimes by day and hour
@@ -1185,7 +1185,7 @@ plt.show()
 ```
 
 
-![png](output_92_0.png)
+![png](../figures/output_92_0.png)
 
 
 ### Remark
