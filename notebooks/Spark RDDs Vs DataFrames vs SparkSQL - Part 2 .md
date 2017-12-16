@@ -25,6 +25,9 @@ sqlcontext = SQLContext(sc)
 ### 1. Retrieve customer orders
 As an initial step towards generating invoice report, write a query that returns the company name from the SalesLTCustomer.txt, and the sales order ID and total due from the SalesLTSalesOrderHeader.txt.
 
+
+![png](../figures/customer_orders_addresses.png.png)
+
 ** RDD way**
 
 
@@ -341,6 +344,8 @@ We see that the results we got using the above three methods, RDD way, DataFrame
 ### 2. Retrieve customer orders with addresses 
 Extend your customer orders query to include the Main Office address for each customer, including the full street address, city, state or province, and country or region. Note that each customer can have multiple addressees in the SalesLTAddress.txt, so the SalesLTCustomerAddress.txt dataset enables a many-to-many relationship between customers and addresses. Your query will need to include both of these datasets, and should filter the join to SalesLTCustomerAddress.txt so that only Main Office addresses are included.
 
+![png](../figures/orderheader_customer_addresses.png)
+
 **RDD way**
 
 I am not repeating some of the steps, I did in question 1 above.
@@ -641,6 +646,10 @@ sqlcontext.sql("SELECT c.CompanyName,cast(oh.TotalDue AS DECIMAL(10,4)), a.Addre
 
 ### 3. Retrieve a list of all customers and their orders
 The sales manager wants a list of all customer companies and their contacts (first name and last name), showing the sales order ID and total due for each order they have placed. Customers who have not placed any orders should be included at the bottom of the list with NULL values for the order ID and total due.
+
+
+![png](../figures/customer_orders_addresses.png.png)
+
 
 **RDD way**
 
@@ -979,6 +988,8 @@ sqlcontext.sql("SELECT c.CustomerID, c.FirstName,c.LastName, oh.SalesOrderID,cas
 
 ### 4. Retrieve a list of customers with no address
 A sales employee has noticed that Adventure Works does not have address information for all customers. You must write a query that returns a list of customer IDs, company names, contact names (first name and last name), and phone numbers for customers with no address stored in the database.
+
+![png](../figures/customers_products_no_orders.png)
 
 **RDD way**
 
