@@ -26,7 +26,7 @@ sqlcontext = SQLContext(sc)
 As an initial step towards generating invoice report, write a query that returns the company name from the SalesLTCustomer.txt, and the sales order ID and total due from the SalesLTSalesOrderHeader.txt.
 
 
-![png](../figures/customer_orders_addresses.png.png)
+![png](../figures/customer_orders_addresses.png)
 
 ** RDD way**
 
@@ -648,7 +648,7 @@ sqlcontext.sql("SELECT c.CompanyName,cast(oh.TotalDue AS DECIMAL(10,4)), a.Addre
 The sales manager wants a list of all customer companies and their contacts (first name and last name), showing the sales order ID and total due for each order they have placed. Customers who have not placed any orders should be included at the bottom of the list with NULL values for the order ID and total due.
 
 
-![png](../figures/customer_orders_addresses.png.png)
+![png](../figures/customer_orders_addresses.png)
 
 
 **RDD way**
