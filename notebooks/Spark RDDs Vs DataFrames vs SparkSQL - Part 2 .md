@@ -648,7 +648,7 @@ sqlcontext.sql("SELECT c.CompanyName,cast(oh.TotalDue AS DECIMAL(10,4)), a.Addre
 The sales manager wants a list of all customer companies and their contacts (first name and last name), showing the sales order ID and total due for each order they have placed. Customers who have not placed any orders should be included at the bottom of the list with NULL values for the order ID and total due.
 
 
-![png](../figures/customer_addresses.png)
+![png](../figures/customer_orders_addresses.png)
 
 
 **RDD way**
@@ -989,7 +989,7 @@ sqlcontext.sql("SELECT c.CustomerID, c.FirstName,c.LastName, oh.SalesOrderID,cas
 ### 4. Retrieve a list of customers with no address
 A sales employee has noticed that Adventure Works does not have address information for all customers. You must write a query that returns a list of customer IDs, company names, contact names (first name and last name), and phone numbers for customers with no address stored in the database.
 
-![png](../figures/customers_products_no_orders.png)
+![png](../figures/customer_addresses.png)
 
 **RDD way**
 
