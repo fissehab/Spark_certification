@@ -1,6 +1,4 @@
 
-In Python, it's possible to access a DataFrame's columns either by attribute (df.age) or by indexing (df['age']). But the second option is better as it helps to avoid some errors that can be caused by the first style.
-
 ### Spark DataFrames: Exploring Chicago Crimes
 
 In this tutorial we will analyze crimes data from [data.gov](https://data.cityofchicago.org/api/views/ijzp-q8t2/rows.csv?accessType=DOWNLOAD). The dataset reflects reported incidents of crime (with the exception of murders where data exists for each victim) that occurred in the City of Chicago since 2001.
