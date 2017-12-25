@@ -129,7 +129,7 @@ for line in rdd.sample(withReplacement = False, fraction = 0.000001, seed = 120)
 import re
 
 def parse_log1(line):
-    match = re.search('^(\S+) (\S+) (\S+) \[(\S+) [-](\d{4})\] "(\S+) (\S+) (\S+) (\d{3}) (\S+)', line)
+    match = re.search('^(\S+) (\S+) (\S+) \[(\S+) [-](\d{4})\] "(\S+)\s*(\S+)\s*(\S+)\s*([\w\.\s*]+)?\s*"*(\d{3}) (\S+)', line)
     if match is None:
         return 0
     else:
@@ -145,10 +145,10 @@ failed = rdd.map(lambda line: parse_log1(line)).filter(lambda line: line == 0).c
 print('Out of {} logs, {} failed to parse'.format(n_logs,failed))
 ```
 
-    Out of 3738455 logs, 285027 failed to parse
+    Out of 3738455 logs, 1685 failed to parse
 
 
-we see that 8185 out of the 3.5 million logs failed to parse. I took samples of the failed logs and tried to modify the above regular expression pattern as show below.
+we see that 1685 out of the 3.5 million logs failed to parse. I took samples of the failed logs and tried to modify the above regular expression pattern as show below.
 
 
 ```python
@@ -170,7 +170,7 @@ failed = rdd.map(lambda line: parse_log2(line)).filter(lambda line: line[1] == 0
 print('Out of {} logs, {} failed to parse'.format(n_logs,failed))
 ```
 
-    Out of 3738455 logs, 278095 failed to parse
+    Out of 3738455 logs, 1253 failed to parse
 
 
 Still, 1253 of them failed to parse. However, since we have successfully parsed more than 99.9% of the data, we can work with what we have parsed. You can play with the regular expression pattern to match all of the data :).
