@@ -1,9 +1,9 @@
 
-##  Spark RDDs Vs DataFrames vs SparkSQL - Part 4 : Set Operators 
+#### Spark RDDs Vs DataFrames vs SparkSQL - Part 4 : Set Operators
 
 This is the fourth tutorial on the Spark RDDs Vs DataFrames vs SparkSQL blog post series. The first one is available [here](http://datascience-enthusiast.com/Python/DataFramesVsRDDsSpark-Part1.html). In the first part, we saw how to retrieve, sort and filter data using Spark RDDs, DataFrames and SparkSQL. In the second part [(here)](http://datascience-enthusiast.com/Python/DataFramesVsRDDsVsSQLSpark-Part2.html), we saw how to work with multiple tables in Spark the RDD way, the DataFrame way and with SparkSQL. In the third part [(available here)](http://datascience-enthusiast.com/Python/DataFramesVsRDDsVsSQLSpark-Part3.html) of the blog post series, we performed web server log analysis using real-world text-based production logs. In this fourth part, we will see set operators in Spark the RDD way, the DataFrame way and the SparkSQL way.
 
-Also, check out my other recent blog posts with Spark on [Analyzing the Bible and the Quran using Spark](http://datascience-enthusiast.com/Python/analyzing_bible_quran_with_spark.html) and [Spark DataFrames: Exploring Chicago Crimes](http://datascience-enthusiast.com/Python/SparkDataFrames-ExploringChicagoCrimes.html). 
+Also, check out my other recent blog posts on Spark on [Analyzing the Bible and the Quran using Spark](http://datascience-enthusiast.com/Python/analyzing_bible_quran_with_spark.html) and [Spark DataFrames: Exploring Chicago Crimes](http://datascience-enthusiast.com/Python/SparkDataFrames-ExploringChicagoCrimes.html).
 
 The data and the notebooks can be downloaded from my [GitHub repository](https://github.com/fissehab/Spark_certification).
 
@@ -11,31 +11,32 @@ The three types of set operators in RDD, DataFrame and SQL approach are shown be
 
 **RDD**
 
-- union
+  - union
 
-- intersection
+  - intersection
 
-- subtract
+  - subtract
 
 **DataFrame**
-- unionAll
 
-- intersect 
+   - unionAll
 
-- subtract
+   - intersect
+
+   - subtract
 
 **SparkSQL**
 
-- union all
+   - union all
 
-- intersect
+   - intersect
 
-- except
+   - except
+
 
 The inputs set operations expect have to have the same variables (columns).
 
-For this tutorial, we will work with the  **SalesLTCustomer.txt**, and **SalesLTCustomerAddress.txt** datasets. Let's answer a couple of questions using Spark Resilient Distiributed (RDD) way, DataFrame way and SparkSQL by employing set operators.
-
+For this tutorial, we will work with the **SalesLTCustomer.txt**, and **SalesLTCustomerAddress.txt** datasets. Let's answer a couple of questions using Spark Resilient Distiributed (RDD) way, DataFrame way and SparkSQL by employing set operators.
 
 ![png](../figures/customer_address_sales.PNG)
 
@@ -50,7 +51,7 @@ sc = SparkContext.getOrCreate(conf)
 sqlcontext = SQLContext(sc)
 ```
 
-### Create RDD
+**Create RDD**
 
 
 ```python
@@ -58,7 +59,7 @@ customer = sc.textFile("SalesLTCustomer.txt")
 customer_address = sc.textFile("SalesLTCustomerAddress.txt")
 ```
 
-#### Understand the data
+**Understand the data**
 
 
 ```python
@@ -86,7 +87,7 @@ customer_address.first()
 
 As shown above, the data is tab delimited.
 
-#### Remove the header from the RDD
+**Remove the header from the RDD**
 
 
 ```python
@@ -94,10 +95,10 @@ customer_header = customer.first()
 customer_rdd = customer.filter(lambda line: line != customer_header)
 
 customer_address_header = customer_address.first()
-customer_address_rdd = (customer_address.filter(lambda line: line != customer_address_header))                     
+customer_address_rdd = (customer_address.filter(lambda line: line != customer_address_header))     
 ```
 
-####  Create DataFrames,  understand the schema and show sample data
+**Create DataFrames, understand the schema and show sample data**
 
 
 ```python
@@ -195,7 +196,7 @@ customer_address_df.show(10, truncate = False)
     
 
 
-#### Register the DataFrames as Tables so as to excute SQL over the tables
+**Register the DataFrames as Tables so as to excute SQL over the tables**
 
 
 ```python
@@ -203,8 +204,9 @@ customer_df.createOrReplaceTempView("customer_table")
 customer_address_df.createOrReplaceTempView("customer_address_table")
 ```
 
-### 1. Retrieve customers with only a main office address
-    Write a query that returns the company name of each company that appears in a table of customers with a ‘Main Office’ address, but not in a table of customers with a ‘Shipping’ address.
+**1. Retrieve customers with only a main office address**
+Write a query that returns the company name of each company that appears in a table of customers with a ‘Main Office’ address, but not in a table of customers with a ‘Shipping’ address.
+
 
 **SparkSQL way**
 
@@ -212,15 +214,14 @@ customer_address_df.createOrReplaceTempView("customer_address_table")
 ```python
 sql1 = sqlcontext.sql("SELECT c.CompanyName \
                 FROM customer_table AS c INNER JOIN customer_address_table AS ca \
-                ON c.CustomerID = ca.CustomerID INNER JOIN sales_address_table AS sa \
-                ON ca.AddressID = sa.AddressID\
+                ON c.CustomerID = ca.CustomerID \
                 WHERE ca.AddressType = 'Main Office'\
                 EXCEPT\
                 SELECT c.CompanyName \
                 FROM customer_table AS c INNER JOIN customer_address_table AS ca \
-                ON c.CustomerID = ca.CustomerID INNER JOIN sales_address_table AS sa \
-                ON ca.AddressID = sa.AddressID\
+                ON c.CustomerID = ca.CustomerID \
                 WHERE ca.AddressType = 'Shipping' ORDER BY CompanyName")
+
 sql1.show(5, truncate = False)
 ```
 
@@ -237,22 +238,20 @@ sql1.show(5, truncate = False)
     
 
 
-** DataFrame way**
+**DataFrame way**
 
 
 ```python
 df1 = ( (
          customer_df.join(customer_address_df.filter(customer_address_df.AddressType == 'Main Office'),
-                          'CustomerID', 'inner')
-         .join(sales_address_df, "AddressID", 'inner').select("CompanyName")
+                          'CustomerID', 'inner').select("CompanyName")
         )
 
         .subtract
 
         (
             (customer_df.join(customer_address_df.filter(customer_address_df.AddressType == 'Shipping'),
-                              'CustomerID', 'inner')
-             .join(sales_address_df, "AddressID", 'inner').select("CompanyName")
+                              'CustomerID', 'inner').select("CompanyName")
             )
         )
     ).orderBy('CompanyName')
@@ -277,13 +276,25 @@ df1.show(5, truncate = False)
 
 
 ```python
+z = (customer_rdd.map(lambda line: (line.split("\t")[0],line.split("\t")[7]))
+
+           .join(
+             customer_address_rdd.filter(lambda line: line.split("\t")[2] =='Main Office')
+             .map(lambda line: (line.split("\t")[0], (line.split("\t")[1])))
+               )
+            .map(lambda line: line[1][0]).distinct()
+
+              )
+```
+
+
+```python
 rdd1 = (
            (customer_rdd.map(lambda line: (line.split("\t")[0],line.split("\t")[7]))
 
            .join(
              customer_address_rdd.filter(lambda line: line.split("\t")[2] =='Main Office')
-             .map(lambda line: (line.split("\t")[0], (line.split("\t")[1], 
-                                                             line.split("\t")[2])))
+             .map(lambda line: (line.split("\t")[0], (line.split("\t")[1])))
                )
             .map(lambda line: line[1][0]).distinct()
 
@@ -293,8 +304,7 @@ rdd1 = (
 
             .join(
                  customer_address_rdd.filter(lambda line: line.split("\t")[2] =='Shipping')
-                 .map(lambda line: (line.split("\t")[0], (line.split("\t")[1], 
-                                                                 line.split("\t")[2])))
+                 .map(lambda line: (line.split("\t")[0], (line.split("\t")[1])))
                  )
              .map(lambda line: line[1][0]).distinct()
 
@@ -321,7 +331,7 @@ sorted(rdd1)[:5]
 
 We see that the first five companies from the SparkSQL way, RDD way and DataFrame way are the same but let's compare all the results.
 
-The results from the SQL and DataFrame are of type **pyspark.sql.types.Row**. So, let's make them orginary Python lists.
+The results from the SQL and DataFrame are of type pyspark.sql.types.Row. So, let's make them orginary Python lists.
 
 
 ```python
@@ -447,6 +457,7 @@ Therefore, we see that the results from the SparkSQL appraoch, DataFrame approac
 
 Write a query that returns the company name of each company that appears in a table of customers with a ‘Main Office’ address, and also in a table of customers with a ‘Shipping’ address.
 
+
 **SparkSQL way**
 
 
@@ -459,7 +470,7 @@ sqlcontext.sql("SELECT c.CompanyName \
                 SELECT c.CompanyName \
                 FROM customer_table AS c INNER JOIN customer_address_table AS ca \
                 ON c.CustomerID = ca.CustomerID \
-                WHERE ca.AddressType = 'Shipping'ORDER BY CompanyName").show(truncate = False)
+                WHERE ca.AddressType = 'Shipping' ORDER BY CompanyName").show(truncate = False)
 ```
 
     +---------------------------+
@@ -574,4 +585,4 @@ sorted(result)
 
 The results from the RDD way are also the same to the DataFrame way and the SparkSQL way.
 
-####  This is enough for today. In the next part of the Spark RDDs Vs DataFrames vs SparkSQL tutorial series, I will come with a different topic. If you have any questions, or suggestions, feel free to drop them below.
+This is enough for today. In the next part of the Spark RDDs Vs DataFrames vs SparkSQL tutorial series, I will come with a different topic. If you have any questions, or suggestions, feel free to drop them below.
